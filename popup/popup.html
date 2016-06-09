@@ -1,0 +1,43 @@
+<!doctype html>
+<html>
+  <head>
+    <title>TweetBlock Popup</title>
+    <style>
+      body {
+        font-family: "Arial", sans-serif;
+        width: 250px;
+      }
+      img.big-logo{
+        max-width:80%;
+        margin: auto;
+        display: block;
+        margin-bottom: 10px;
+      }
+
+      .border-frame{
+        width: 100%;
+        padding: 1% 5%;
+
+        border-radius: 3px;
+        border: 1px solid #888;
+
+        box-sizing:border-box;
+      }
+
+      span#num_tweets_blocked {
+        font-weight: bold;
+      }
+    </style>
+
+    <script src="../commonjs/blocked_tweet_db.js"></script>
+    <script src="../popup/popup.js"></script>
+  </head>
+  <body>
+    <img class="big-logo" src="../img/tweetblock_big_logo.png" />
+    <div class="border-frame">
+      <p>Tweets blocked: <span id="num_tweets_blocked"></span></p>
+      <p><a href="#" id="edit_list_link">Edit list</a></p>
+    </div>
+  </body>
+</html>
+

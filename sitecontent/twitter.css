@@ -1,0 +1,51 @@
+.tweetblock-tweet-disabled {
+  background: #f8f8f8 !important;
+}
+
+.tweetblock-tweet-disabled .js-tweet-text-container, 
+.tweetblock-tweet-disabled .AdaptiveMedia,
+.tweetblock-tweet-disabled .expanded-content,
+.tweetblock-tweet-disabled .QuoteTweet,
+.tweetblock-tweet-disabled .js-media-container,
+.tweetblock-tweet-disabled .stream-item-footer {
+  display: none !important;
+}
+
+.tweetblock-tweet-disabled > * {
+  opacity: 0.5;
+}
+
+.tweet .tweetblock-show-anyway-action {
+  opacity: 1.0 !important;
+  margin-left: 58px;
+  margin-top: 5px;
+}
+
+.tweet.tweetblock-tweet-unblocked .tweetblock-show-anyway-action {
+  display: none;
+}
+
+.ProfileTweet-actionList .ProfileTweet-action {
+  width: 65px;
+}
+
+.ProfileTweet-actionList .ProfileTweet-action.ProfileTweet-action--analytics {
+  width: 40px;
+}
+
+.ProfileTweet-actionList .ProfileTweet-action.ProfileTweet-action--tweetblock {
+  width: 40px;
+}
+
+.ProfileTweet-actionList .ProfileTweet-action--tweetblock .tweetblock-blockbtn {
+  width: 16px;
+  height: 15px;
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.7 35.2"><path d="M2.2 5c-1 1.2-1 2.8 0 4l8.7 8.6L2 26.3c-1 1-1 2.7 0 3.8l4.2 4.3c1 1 2.7 1 3.7 0l8.8-8.8 8.8 8.8c1 1 2.7 1 3.7 0l4.2-4.2c1-1 1-2.6 0-3.7l-8.7-8.7L35.5 9c1-1.2 1-3 0-4l-4.2-4c-1-1-2.7-1-3.7 0l-8.8 8.7L10 1C9 0 7.5 0 6.5 1L2.2 5z" fill="#aab8c2"/></svg>');
+  background-repeat: no-repeat;
+  background-position: center;
+}
+
+.tweet .ProfileTweet-actionList .ProfileTweet-action--tweetblock .tweetblock-blockbtn:hover,
+.tweet.tweetblock-tweet-blocked .ProfileTweet-actionList .ProfileTweet-action--tweetblock .tweetblock-blockbtn {
+  background-image: url('data:image/svg+xml;utf8,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 37.7 35.2"><path d="M2.2 5c-1 1.2-1 2.8 0 4l8.7 8.6L2 26.3c-1 1-1 2.7 0 3.8l4.2 4.3c1 1 2.7 1 3.7 0l8.8-8.8 8.8 8.8c1 1 2.7 1 3.7 0l4.2-4.2c1-1 1-2.6 0-3.7l-8.7-8.7L35.5 9c1-1.2 1-3 0-4l-4.2-4c-1-1-2.7-1-3.7 0l-8.8 8.7L10 1C9 0 7.5 0 6.5 1L2.2 5z" fill="#FF4D4D"/></svg>');
+}
