@@ -4,7 +4,7 @@ A chrome extension to block tweets on your timeline without blocking the user ma
 
 ![tweetblock how-to gif](https://raw.githubusercontent.com/blackle/TweetBlock/master/img/how_to.gif)
 
-== Descripty ==
+## Descripty 
 
 TweetBlock is a chrome extension to block specific tweets from appearing on your timeline, without blocking the user creating them.
 
