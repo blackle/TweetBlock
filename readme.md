@@ -1,5 +1,5 @@
-![tweetblock logo](https://raw.githubusercontent.com/blackle/TweetBlock/master/img/tweetblock_big_logo.png)
+![tweetblock logo](https://raw.githubusercontent.com/blackle/TweetBlock/master/img/tweetblock_small_logo.png)
 
-Block tweets on your timeline without blocking the user.
+A chrome extension to block tweets on your timeline without blocking the user making them.
 
 ![tweetblock how-to gif](https://raw.githubusercontent.com/blackle/TweetBlock/master/img/how_to.gif)
