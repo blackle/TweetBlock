@@ -27,10 +27,9 @@ class BlockedTweetsDB {
           var newtweets = Object.keys(storageChange.newValue).sort();
           var oldtweets = Object.keys(blocked_tweet_scope.db).sort();
           var differencetweets = symmetric_difference(newtweets,oldtweets);
-          console.log(differencetweets);
           if(differencetweets.length !== 0){
             blocked_tweet_scope.db = storageChange.newValue;
-            console.log("observed novel update");
+            console.log("TweetBlock: Observed external update");
             for(var i = 0; i < differencetweets.length; i++){
               extern_update_callback(differencetweets[i]);
             }
@@ -41,12 +40,10 @@ class BlockedTweetsDB {
   }
 
   db_update(callback){
-    console.log(this.db);
     chrome.storage.sync.set({'db': this.db}, callback);
   }
 
   block_tweet(tweet_id, callback){
-    console.log(tweet_id);
     this.db[tweet_id] = {blocked: true, date: new Date().getTime()};
     this.db_update(callback);
   }

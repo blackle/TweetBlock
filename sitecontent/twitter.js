@@ -6,7 +6,6 @@ function update_from_external(tweetId){
       var tweet = tweets[i] 
       //add class depending on blockness
       var blockstatus = window.blocked_tweets_db.query_tweet(tweetId);
-      console.log(document.querySelectorAll("[data-tweet-id='"+tweetId+"']"));
 
       if(blockstatus){
         tweet.classList.add('tweetblock-tweet-blocked', 'tweetblock-tweet-disabled');
@@ -28,10 +27,17 @@ function deal_with(tweet){
 
   if(tweet.classList.contains('tweetblock-tweet-seen')){
     //if we've seen this already delete the inert buttons
-    var block_btn_contain = tweet.getElementsByClassName('ProfileTweet-action--tweetblock')[0];
-    var show_anyway_contain = tweet.getElementsByClassName('tweetblock-show-anyway-action')[0];
-    block_btn_contain.parentNode.remove(block_btn_contain);
-    show_anyway_contain.parentNode.remove(show_anyway_contain);
+    var block_btn_contains = tweet.getElementsByClassName('ProfileTweet-action--tweetblock');
+    var show_anyway_contains = tweet.getElementsByClassName('tweetblock-show-anyway-action');
+    
+    for(var i = 0; i < block_btn_contains.length; i++){
+      var block_btn_contain_ = block_btn_contains[i];
+      block_btn_contain_.parentNode.removeChild(block_btn_contain_);
+    }
+    for(var i = 0; i < show_anyway_contains.length; i++){
+      var show_anyway_contain_ = show_anyway_contains[i];
+      show_anyway_contain_.parentNode.removeChild(show_anyway_contain_);
+    }
   } else {
     tweet.classList.add('tweetblock-tweet-seen');
   }
@@ -124,7 +130,7 @@ function bootstrap(){
   var check_attempts = 50;
 
   //give up after 50*check_attempt milliseconds
-  setTimeout(function(){
+  window.stream_giveup = setTimeout(function(){
       window.clearTimeout(window.stream_poller);
   }, 50*check_attempts)
 
@@ -149,13 +155,14 @@ function bootstrap(){
 
       //if the page has moved because of a history push, this should catch it
       window.page_watch = new MutationObserver(function(mutations) {
+        console.log("TweetBlock: Detected context change");
+        window.clearTimeout(window.stream_giveup);
         window.clearTimeout(window.stream_poller);
         bootstrap();
       });
       window.page_watch.observe(document.getElementById("page-container"), { attributes: true });
 
       window.stream_watch = new MutationObserver(function(mutations) {
-        // console.log(mutations);
 
         for(var i = 0; i < mutations.length; i++){
           var mutation = mutations[i];
@@ -173,7 +180,7 @@ function bootstrap(){
       });
       window.stream_watch.observe(stream_dom, { childList: true });
     } else {
-      console.log("looking for stream");
+      console.log("TweetBlock: Looking for stream");
     }
   },50);
 }
